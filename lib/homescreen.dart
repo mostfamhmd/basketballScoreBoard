@@ -19,6 +19,8 @@ class HomeScreen extends StatelessWidget {
     return BlocConsumer<CounterCubit, CounterState>(
       listener: (context, state) {
         // TODO: implement listener
+        a = BlocProvider.of<CounterCubit>(context).teamACounter;
+        b = BlocProvider.of<CounterCubit>(context).teamBCounter;
       },
       builder: (context, state) {
         return Scaffold(
@@ -38,13 +40,14 @@ class HomeScreen extends StatelessWidget {
                     Align(
                       alignment: Alignment.center,
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           NameTeam(nameTeam: 'Team A', fontSize: 40),
-                          Counter(
-                              counter: BlocProvider.of<CounterCubit>(context)
-                                  .teamACounter),
-                          const SizedBox(
-                            height: 50,
+                          Center(
+                            child: Counter(
+                                fontsize: 80,
+                                counter: BlocProvider.of<CounterCubit>(context)
+                                    .teamACounter),
                           ),
                           YourButton(
                               NameBTN: "Add 1 Point",
@@ -52,18 +55,12 @@ class HomeScreen extends StatelessWidget {
                                 BlocProvider.of<CounterCubit>(context)
                                     .TeamIncrement(addPoint: 1, nameTeam: "A");
                               }),
-                          const SizedBox(
-                            height: 50,
-                          ),
                           YourButton(
                               NameBTN: "Add 2 Point",
                               onPressed: () {
                                 BlocProvider.of<CounterCubit>(context)
                                     .TeamIncrement(addPoint: 2, nameTeam: "A");
                               }),
-                          const SizedBox(
-                            height: 50,
-                          ),
                           YourButton(
                               NameBTN: "Add 3 Point",
                               onPressed: () {
@@ -87,11 +84,11 @@ class HomeScreen extends StatelessWidget {
                       child: Column(
                         children: [
                           NameTeam(nameTeam: 'Team B', fontSize: 40),
-                          Counter(
-                              counter: BlocProvider.of<CounterCubit>(context)
-                                  .teamBCounter),
-                          const SizedBox(
-                            height: 50,
+                          Center(
+                            child: Counter(
+                                fontsize: 80,
+                                counter: BlocProvider.of<CounterCubit>(context)
+                                    .teamBCounter),
                           ),
                           YourButton(
                               NameBTN: "Add 1 Point",
@@ -99,18 +96,12 @@ class HomeScreen extends StatelessWidget {
                                 BlocProvider.of<CounterCubit>(context)
                                     .TeamIncrement(addPoint: 1, nameTeam: "B");
                               }),
-                          const SizedBox(
-                            height: 50,
-                          ),
                           YourButton(
                               NameBTN: "Add 2 Point",
                               onPressed: () {
                                 BlocProvider.of<CounterCubit>(context)
                                     .TeamIncrement(addPoint: 2, nameTeam: "B");
                               }),
-                          const SizedBox(
-                            height: 50,
-                          ),
                           YourButton(
                               NameBTN: "Add 3 Point",
                               onPressed: () {

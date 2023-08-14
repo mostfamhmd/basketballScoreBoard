@@ -1,9 +1,8 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:basketball_counter/comp/button.dart';
-import 'package:basketball_counter/comp/counter.dart';
-import 'package:basketball_counter/comp/text.dart';
 import 'package:basketball_counter/cubit/cubit/counter_cubit.dart';
+import 'package:basketball_counter/model/column.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -39,36 +38,11 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     Align(
                       alignment: Alignment.center,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          NameTeam(nameTeam: 'Team A', fontSize: 40),
-                          Center(
-                            child: Counter(
-                                fontsize: 80,
-                                counter: BlocProvider.of<CounterCubit>(context)
-                                    .teamACounter),
-                          ),
-                          YourButton(
-                              NameBTN: "Add 1 Point",
-                              onPressed: () {
-                                BlocProvider.of<CounterCubit>(context)
-                                    .TeamIncrement(addPoint: 1, nameTeam: "A");
-                              }),
-                          YourButton(
-                              NameBTN: "Add 2 Point",
-                              onPressed: () {
-                                BlocProvider.of<CounterCubit>(context)
-                                    .TeamIncrement(addPoint: 2, nameTeam: "A");
-                              }),
-                          YourButton(
-                              NameBTN: "Add 3 Point",
-                              onPressed: () {
-                                BlocProvider.of<CounterCubit>(context)
-                                    .TeamIncrement(addPoint: 3, nameTeam: "A");
-                              }),
-                        ],
-                      ),
+                      child: MyColumn(
+                          nameTeam: "Team A",
+                          counter: BlocProvider.of<CounterCubit>(context)
+                              .teamACounter,
+                          charTeam: "A"),
                     ),
                     SizedBox(
                       height: MediaQuery.sizeOf(context).height * 3 / 4,
@@ -81,35 +55,11 @@ class HomeScreen extends StatelessWidget {
                     ),
                     Align(
                       alignment: Alignment.center,
-                      child: Column(
-                        children: [
-                          NameTeam(nameTeam: 'Team B', fontSize: 40),
-                          Center(
-                            child: Counter(
-                                fontsize: 80,
-                                counter: BlocProvider.of<CounterCubit>(context)
-                                    .teamBCounter),
-                          ),
-                          YourButton(
-                              NameBTN: "Add 1 Point",
-                              onPressed: () {
-                                BlocProvider.of<CounterCubit>(context)
-                                    .TeamIncrement(addPoint: 1, nameTeam: "B");
-                              }),
-                          YourButton(
-                              NameBTN: "Add 2 Point",
-                              onPressed: () {
-                                BlocProvider.of<CounterCubit>(context)
-                                    .TeamIncrement(addPoint: 2, nameTeam: "B");
-                              }),
-                          YourButton(
-                              NameBTN: "Add 3 Point",
-                              onPressed: () {
-                                BlocProvider.of<CounterCubit>(context)
-                                    .TeamIncrement(addPoint: 3, nameTeam: "B");
-                              }),
-                        ],
-                      ),
+                      child: MyColumn(
+                          nameTeam: "Team B",
+                          counter: BlocProvider.of<CounterCubit>(context)
+                              .teamBCounter,
+                          charTeam: "B"),
                     ),
                   ],
                 ),

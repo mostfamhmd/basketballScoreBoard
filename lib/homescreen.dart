@@ -36,14 +36,11 @@ class HomeScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Align(
-                      alignment: Alignment.center,
-                      child: MyColumn(
-                          nameTeam: "Team A",
-                          counter: BlocProvider.of<CounterCubit>(context)
-                              .teamACounter,
-                          charTeam: "A"),
-                    ),
+                    MyColumn(
+                        nameTeam: "Team A",
+                        counter:
+                            BlocProvider.of<CounterCubit>(context).teamACounter,
+                        charTeam: "A"),
                     SizedBox(
                       height: MediaQuery.sizeOf(context).height * 3 / 4,
                       child: const VerticalDivider(
@@ -53,14 +50,11 @@ class HomeScreen extends StatelessWidget {
                         thickness: 2,
                       ),
                     ),
-                    Align(
-                      alignment: Alignment.center,
-                      child: MyColumn(
-                          nameTeam: "Team B",
-                          counter: BlocProvider.of<CounterCubit>(context)
-                              .teamBCounter,
-                          charTeam: "B"),
-                    ),
+                    MyColumn(
+                        nameTeam: "Team B",
+                        counter:
+                            BlocProvider.of<CounterCubit>(context).teamBCounter,
+                        charTeam: "B"),
                   ],
                 ),
                 const Divider(
